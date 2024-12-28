@@ -7,6 +7,21 @@ let search=document.querySelector("#search")
 let btn=document.querySelector("#btn")
 let search_trig=document.querySelector("#search_trig")
 let search_bar=document.querySelector(".search_bar")
+let data=document.querySelectorAll("#data");
+let sale_submit=document.querySelector("#sale_submit")
+
+
+data.forEach(datum => {
+
+    datum.addEventListener("input", ()=>{
+        let allFilled = Array.from(data).every((field) => field.value.trim() !== '');
+    sale_submit.disabled = !allFilled;
+
+    })
+ 
+    
+   
+});
 
 search.addEventListener("input", ()=>{
     if(search.value.trim()===''){
@@ -85,3 +100,7 @@ $(window).on("load resize ", function() {
     var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
     $('.tbl-header').css({'padding-right':scrollWidth});
   }).resize();
+
+
+
+

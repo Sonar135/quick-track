@@ -441,15 +441,17 @@ h3{
     display:flex;
     justify-content: center;
     align-items: center;
+    transition:.6s;
 }
 
 .search_cont button i{
     color:white;
-    font-size:35px;
+    font-size:20px;
 }
 
 .search_cont button:disabled{
     background: #a17bd2b7;
+    transition:.6s;
 }
 
 

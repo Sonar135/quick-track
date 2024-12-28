@@ -116,7 +116,7 @@ h3{
 }
 
 .side_bar ul li{
-    margin: 50px auto;
+    margin: 70px auto;
     width:100%;
     height:100px;
     color:black;
@@ -224,7 +224,7 @@ h3{
 }
 
 .item_cont{
-    margin-top:100px;
+    margin-top:0px;
     /* width:1300px; */
     /* height:auto; */
     display:flex;
@@ -509,13 +509,15 @@ h3{
     display:flex;
     justify-content: center;
     align-items: center;
+    transition:.6s;
 }
 
 .search_cont button i{
     color:white;
-    font-size:35px;
+    font-size:20px;
 }
 
 .search_cont button:disabled{
     background: #a17bd2b7;
+    transition:.6s;
 }
