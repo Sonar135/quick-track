@@ -1,5 +1,5 @@
 let cat_call=document.querySelector(".cat_call");
-let categories=document.querySelector(".categories");
+let category=document.querySelector(".categories");
 let sup_call=document.querySelector(".sup_call")
 let supplier=document.querySelector(".supplier")
 let hideTimer
@@ -9,19 +9,49 @@ let search_trig=document.querySelector("#search_trig")
 let search_bar=document.querySelector(".search_bar")
 let data=document.querySelectorAll("#data");
 let sale_submit=document.querySelector("#sale_submit")
+let item_cards=document.querySelectorAll(".item_card")
+let fileInput=document.querySelector("#img")
+let img_label=document.querySelector("#img_label")
 
 
-data.forEach(datum => {
+
+
+item_cards.forEach((item_card, i)=>{
+    setTimeout(() => {
+        item_card.style.display="block";
+    }, i*100);
+})
+
+
+data.forEach((datum, i)=> {
 
     datum.addEventListener("input", ()=>{
         let allFilled = Array.from(data).every((field) => field.value.trim() !== '');
     sale_submit.disabled = !allFilled;
+
+    
 
     })
  
     
    
 });
+
+
+fileInput.addEventListener("change", ()=>{
+    const file = fileInput.files[0]; // Get the first file
+
+    img_label.textContent = `${file.name}`;
+    document.querySelector(".img_input").value=`${file.name}`
+
+    const event = new Event("input", { bubbles: true });
+    document.querySelector(".img_input").dispatchEvent(event);
+        // sale_submit.disabled=false;
+ 
+})
+
+
+
 
 search.addEventListener("input", ()=>{
     if(search.value.trim()===''){
@@ -47,26 +77,26 @@ search_trig.addEventListener("click", ()=>{
 
 cat_call.addEventListener("mouseenter", ()=>{
 
-    categories.style.display="block"
+    category.style.display="block"
 })
 
 cat_call.addEventListener("mouseleave", ()=>{
 
 
-        categories.style.display = "none";
+        category.style.display = "none";
   
    
 })
 
-categories.addEventListener("mouseenter", ()=>{
+category.addEventListener("mouseenter", ()=>{
 
-    categories.style.display="block"
+    category.style.display="block"
     cat_call.style.display="block"
 })
 
-categories.addEventListener("mouseleave", ()=>{
+category.addEventListener("mouseleave", ()=>{
     
-    categories.style.display="none"
+    category.style.display="none"
     // cat_call.style.display="block"
 })
 

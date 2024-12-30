@@ -192,7 +192,7 @@ h3{
     align-items: center;
 }
 
-.card_add button{
+.card_add a{
     width:80px;
     height:80px;
     border-radius: 80px;
@@ -201,14 +201,17 @@ h3{
     border:none;
     box-shadow: var(--shadow);
     transition:.3s;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card_add button:hover{
+.card_add a:hover{
     background: var(--accent_hover);
     transition:.3s;
 }
 
-.card_add button i{
+.card_add a i{
     color:white;
     font-size:35px;
 }

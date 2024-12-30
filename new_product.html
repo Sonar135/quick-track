@@ -7,6 +7,9 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="message">
+
+    </div>
     <div class="header">
         <div class="logo_cont">
 
@@ -25,34 +28,64 @@
         </div>
 
         <div class="last_cont">
-
-        </div>
+            <ul>
+              
+            </ul>
+         </div>
     </div>
 
     <div class="hero">
         <div class="container form_cont">
-            <form method="post"><div class="cent">
+            <form id="product_form"><div class="cent">
                  <h1>New Product</h1>
  
-                 <input type="file"  id="img" class="">
-                <label for="img">
+                 <input type="file"  id="img" class="" name="image">
+                <label for="img" >
 
-                    <div class="item_selector">
-                        <h4 class="animate-text">Product image</h4> 
-     
-     
-                        
+                    <div class="item_selector field">
+                        <h4 class="animate-text" id="img_label">Product image</h4>          
                      </div>
                 </label>
                 
               
-                 <input type="text" placeholder="Product Name" id="data">
-                 <input type="text" placeholder="Quantity" id="data">
-                 <input type="text" placeholder="expiry Date (format: 01/03/2020)" id="data">
+                 <input type="hidden"  id="data" class="img_input" name="img_input">
+                 <input type="text" placeholder="Product Name" id="data" name="name" class="field">
+                 <input type="text" placeholder="Quantity" id="data" name="quantity" class="field">
+                 <input type="text" placeholder="supplier" id="data" name="supplier" class="field">
+
+                 <input type="hidden"  id="data" class="cat_value" name="category">
+
+
+                 <div class="cat_selector field">
+                    <h4 class="animate-text">Category</h4> 
  
-                 <button disabled="disabled" id="sale_submit">Submit</button>
+ 
+                     <div class="categories">
+                        
+                         <ul>
+                             <li>Fashion</li>
+                             <li>Food Stuff</li>
+                             <li>Electronics</li>
+                             <li>Beauty</li>
+                             <li>Furniture</li>
+                             <li>Beverages</li>
+                             <li>Food Stuff</li>
+                         </ul>
+                     </div>
+                 </div>
+
+
+                 <input type="text" placeholder="expiry Date (format: 01/03/2020)" id="data" name="date" class="field">
+
+
+ 
+                 <button disabled="disabled" id="sale_submit" class="field">Submit</button>
              </div></form> 
          </div>
     </div>
 </body>
+<script src="js/session.js"></script>
+<script src="js/dom.js"></script>
+<script src="js/dom2.js"></script>
+<script src="js/new_product.js"></script>
 </html>
