@@ -1,6 +1,6 @@
 let product_form=document.querySelector("#product_form");
 let message=document.querySelector(".message");
-let data=document.querySelectorAll(".data")
+let product_data=document.querySelectorAll("#data");
 
 
 
@@ -21,18 +21,56 @@ product_form.addEventListener("submit", (e)=>{
         message.style.display="flex"
        message.textContent="item inserted";
 
+       cat_h4.textContent="category";
+       img_label.textContent="product image"
+
        setTimeout(() => {
         message.style.display='none';
         }, 7000);
         
         sale_submit.disabled = true;
 
-        data.forEach((datum, i)=> {
+        product_data.forEach((datum, i)=> {
 
             datum.value="";        
            
         });
     }
+
+    else if(data.status==="invalid_date"){
+        message.style.display="flex";
+        message.textContent="invalid date"
+        setTimeout(()=>{
+            message.style.display="none";
+        }, 7000);
+
+        product_data[5].value="";
+    }
+
+    else if(data.status==="quantity_invalid"){
+        message.style.display="flex";
+        message.textContent="invalid quantity"
+        setTimeout(()=>{
+            message.style.disabled="none";
+        }, 7000);
+
+        product_data[2].value="";
+    }
 })
 })
 
+
+
+
+
+fileInput.addEventListener("change", ()=>{
+    const file = fileInput.files[0]; // Get the first file
+
+    img_label.textContent = `${file.name}`;
+    document.querySelector(".img_input").value=`${file.name}`
+
+    const event = new Event("input", { bubbles: true });
+    document.querySelector(".img_input").dispatchEvent(event);
+        // sale_submit.disabled=false;
+ 
+})
