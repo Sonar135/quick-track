@@ -8,6 +8,10 @@
     <title>Document</title>
 </head>
 <body>
+
+  <div class="message">
+    
+  </div>
     <div class="header">
         <div class="logo_cont">
 
@@ -34,10 +38,10 @@
 
     <div class="hero">
         <div class="container form_cont">
-           <form method="post"><div class="cent">
+           <form method="post" id="restock_form"><div class="cent">
                 <h1>Restock product</h1>
 
-                <input type="hidden" placeholder="Product Name" id="data" class="product_data">
+                <input type="hidden" placeholder="Product Name" id="data" class="product_data" name="name">
                 <div class="item_selector  field">
                   <h4 class="animate-text">Select Product</h4> 
 
@@ -55,8 +59,9 @@
                         </ul>
                     </div>
                 </div>
-                <input type="text" placeholder="Quantity" id="data" class="field">
-                <input type="text" placeholder="Date (format: 01/03/2020)" id="data" class="field">
+                <input type="text" placeholder="Quantity" id="data" class="field" name="quantity">
+                <input type="text" id="supplier_input" name="supplier">
+                <input type="text" id="supplier_id" name="id">
 
                 <button disabled="disabled" id="sale_submit" class="field">Submit</button>
             </div></form> 

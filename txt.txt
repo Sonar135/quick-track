@@ -1,0 +1,8 @@
+create table purchases(
+	id int AUTO_INCREMENT PRIMARY KEY,
+    name varchar(255),
+    supplier varchar(255),
+    quantity int(255),
+    current_stock int(255),
+    date date
+)

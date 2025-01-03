@@ -11,6 +11,7 @@
 
 body{
     overflow-y: scroll;
+    background: #faf6f6;
 }
 
 
@@ -117,7 +118,9 @@ h3{
     height:800px;
     left:0;
     top:60px;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
+    border-right: 2px solid var(--accent_reso);
+    background: white;
 }
 
 .side_bar ul{
@@ -152,7 +155,7 @@ a{
 }
 
 .ico{
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
     width:50px;
     height:50px;
     border-radius: 50px;
@@ -202,12 +205,13 @@ h3{
     width:800px;
     height:40px;
     border-radius:18px;
-    box-shadow:var(--shadow);
+    /* box-shadow:var(--shadow); */
     margin:50px auto;
     position:sticky;
-    top:60px;
+    top:59px;
     background: white;
     z-index:100;
+    border: 2px solid var(--accent_reso);
 }
 
 
@@ -249,10 +253,11 @@ h3{
     width:380px;
     height:260px;
     margin:28px 20px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     border-radius: 8px;
     animation: rise .5s ease-in-out;
     display:none;
+    background: white;
     /* border: 1px solid var(--accent_reso); */
 }
 
@@ -285,6 +290,17 @@ h3{
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position:relative;
+}
+
+.pic_overlay{
+    width:100%;
+    height:100%;
+    position:absolute;
+    /* background: #00000001; */
+    top:0;
+    left:0;
+    border-radius: 18px;
 }
 
 .item_pic img{
@@ -325,9 +341,9 @@ h3{
 .item_name{
     width:100%;
     height:50px;
-    color:var(--accent_reso);
-    font-weight:800;
-    font-size:20px;
+    color:rgba(0, 0, 0, 0.61);
+    font-weight:600;
+    font-size:17px;
     text-align: center;
     align-items: center;
 }
@@ -339,7 +355,7 @@ h3{
 
 
 
-.filter_by, .sorter{
+.filter_by {
     position:absolute;
     top:20px;
     width:150px;
@@ -371,7 +387,7 @@ h3{
 
 
 
-.filter_by ul,  .sorter ul{
+.filter_by   {
     width:100%;
     height:100%;
     display:block;
@@ -397,13 +413,13 @@ h3{
 }
 
 
- .category ul::-webkit-scrollbar, .supply ul::-webkit-scrollbar {
+ .category ul::-webkit-scrollbar, .supply ul::-webkit-scrollbar, .sort_list ul::-webkit-scrollbar, .order ul::-webkit-scrollbar  {
     width: 2px;
 } 
-.category ul::-webkit-scrollbar-track, .supply ul::-webkit-scrollbar-track {
+.category ul::-webkit-scrollbar-track, .supply ul::-webkit-scrollbar-track, .sort_list ul::-webkit-scrollbar-track, .order ul::-webkit-scrollbar-track  {
     -webkit-box-shadow: inset 0 0 6px white; 
 } 
-.category ul::-webkit-scrollbar-thumb, .supply ul::-webkit-scrollbar-thumb {
+.category ul::-webkit-scrollbar-thumb, .supply ul::-webkit-scrollbar-thumb, .sort_list ul::-webkit-scrollbar-thumb , .order ul::-webkit-scrollbar-thumb  {
     -webkit-box-shadow: inset 0 0 6px var(--accent_reso); 
 }
 
@@ -415,23 +431,41 @@ h3{
     position:relative;
 }
 
-.sorter ul li{
-    margin:20px 0;
+
+.sorter{
+    position:absolute;
+    width: 250px;
+    border:1px solid var(--accent_reso);
+    top:30px;
+    left:-100px;
+    background: white;
+    cursor:default;
+    animation: fade_in .5s ease-in-out;
+    display:none;
+    height:260px;
 }
 
-.sort:hover .sorter{
-    display:block;
+
+.sort_list{
+    width:100%;
+    height:130px;
+    border-bottom:1px solid var(--accent_reso);
+}
+
+.order{
+    width:100%;
+    height: 80px;
 }
 
 .search_bar{
     width:100%;
-    height:150px;
-    background: #a17bd2b7;
+    height:100px;
+    background: #7307f78a;
     position:fixed;
     bottom:0;
     left:0;
     z-index:1000;
-    display:none;
+    /* display:none; */
     animation: up .3s ease-in-out;
 }
 
@@ -478,7 +512,7 @@ h3{
     height:50px;
     border-radius: 100px;
     position:absolute;
-    background: var(--accent);
+    background: var(--accent_reso);
     outline:none;
     border:none;
     right:0px;
@@ -527,15 +561,40 @@ h3{
     align-items: center;
 }
 
-.sub button{
+.sort_sub{
+    width:100%;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sub button, .sort_sub button{
     padding:5px 30px;
-    background: var(--accent_hover);
+    background: var(--accent_reso);
     color:white;
     font-size:14px;
     font-weight:600;
     border-radius: 6px;
     border: none;
     cursor:pointer;
+    transition:.5s;
+}
+
+.sub button:disabled, .sort_sub button:disabled{
+    background: var(--accent_disabled);
+    cursor:default;
+    transition:.5s;
+}
+
+.sub button:hover, .sort_sub button:hover{
+    background: var(--accent_hover);
+    transition:.5s;
+}
+
+.sub button:disabled:hover, .sort_sub button:disabled:hover{
+    background: var(--accent_disabled);
 }
 
 .category, .supply{
@@ -544,9 +603,7 @@ h3{
     padding-right:5px;
 }
 
-.category{
-    border-right:1px solid var(--accent_reso);
-}
+
 
 .category h4, .supply h4{
     text-align: center;
@@ -563,7 +620,15 @@ h3{
     padding:0 10px;
 }
 
-.category ul li, .supply ul li{
+.sort_list ul, .order ul{
+    height:100%;
+    width:100%;
+    overflow-y: scroll;
+    display:block;
+    padding:0 10px;
+}
+
+.category ul li, .supply ul li, .sort_list ul li, .order ul li{
     margin:10px 0;
     text-align: center;
     width:100%;
@@ -576,7 +641,9 @@ h3{
     display:none;
 }
 
-.category ul li:hover, .supply ul li:hover{
+
+
+.category ul li:hover, .supply ul li:hover, .sort_list ul li:hover, .order ul li:hover{
     background: var(--accent_disabled);
     transition:.3s;
     color:var(--accent_reso);
@@ -610,6 +677,10 @@ h3{
 
 }
 
+.sort ul li{
+    text-transform: lowercase;
+}
+
 .filter ul li .selected{
     background: var(--accent_reso);
     transition:.3s;
@@ -620,3 +691,41 @@ h3{
     background: var(--accent_reso);
     color:white;
 }
+
+.item_cont h1{
+    width:100%;
+    text-align: center;
+    margin-top:200px;
+    animation: h1 .4s ;
+    color:var(--accent_reso);
+}
+
+
+@keyframes h1 {
+    from{
+        opacity:0;
+        transform: translateY(0px);
+    }
+
+    50%{
+        opacity:1;
+        transform: translateY(-30px);
+    }
+
+    75%{
+        opacity:1;
+        transform: translateY(0px);
+    }
+
+    90%{
+        opacity:1;
+        transform: translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform: translateY(0px);
+    }
+}
+
+

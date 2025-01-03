@@ -1,4 +1,3 @@
-
 let hideTimer
 let search=document.querySelector("#search")
 let btn=document.querySelector("#btn")
@@ -43,6 +42,7 @@ data.forEach((datum, i)=> {
 search.addEventListener("input", ()=>{
     if(search.value.trim()===''){
         btn.disabled=true;
+        // filterButton.disabled=true;
     }
 
    else if(search.value.trim()!==''){
@@ -50,26 +50,11 @@ search.addEventListener("input", ()=>{
     }
 })
 
-search_trig.addEventListener("click", ()=>{
-
-    if(search_bar.style.display==="block"){
-        search_bar.style.display="none";
-    }
-
-    else{
-        search_bar.style.display="block";
-    }
-   
-})
 
 
 
 
-// table
 
-$(window).on("load resize ", function() {
-    var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
-    $('.tbl-header').css({'padding-right':scrollWidth});
-  }).resize();
+
 
 

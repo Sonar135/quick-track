@@ -16,14 +16,14 @@ branches.forEach((branch, i)=>{
 
             fields_block.forEach((field, i) =>{
                 setTimeout(() => {
-                    field.style.display = 'block'; // Show the container
-                  }, i * 100); // Delay increases with each index
+                    field.style.display = 'block';
+                  }, i * 100); 
             })
 
 
             trs.forEach((tr, i) =>{
               
-                tr.style.display = 'none'; // Show the container
+                tr.style.display = 'none';
            
         })
 
@@ -44,8 +44,8 @@ branches.forEach((branch, i)=>{
 
             trs.forEach((tr, i) =>{
                 setTimeout(() => {
-                    tr.style.display = 'table-row'; // Show the container
-                  }, i * 100); // Delay increases with each index
+                    tr.style.display = 'table-row';
+                  }, i * 100); 
             })
         }
 
@@ -60,7 +60,7 @@ branches.forEach((branch, i)=>{
 
             trs.forEach((tr, i) =>{
               
-                    tr.style.display = 'none'; // Show the container
+                    tr.style.display = 'none';
                
             })
         }

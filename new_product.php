@@ -36,7 +36,8 @@ if(isset($_SESSION["id"])){
 
 
     else{
-        $query=mysqli_query($conn, "INSERT into inventory (name, quantity, supplier, category, date, image, store) values('$name', '$quantity', '$supplier', '$category', '$date', '$img_input', '$store' )");
+        $formatted_date = date("Y-m-d", strtotime($date));
+        $query=mysqli_query($conn, "INSERT into inventory (name, quantity, supplier, category, date, image, store) values('$name', '$quantity', '$supplier', '$category', '$formatted_date', '$img_input', '$store' )");
          move_uploaded_file($temp_img, "./pictures/$img_input");
          if($query){
            

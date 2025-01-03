@@ -8,13 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="search_bar">
-        <div class="search_cont">
-            <input type="text" placeholder="search" id="search">
-            <button disabled="disabled" id="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-     
-    </div>
+   
     <div class="header">
         <div class="logo_cont">
 
@@ -77,9 +71,9 @@
                     <ul>
                         <li class="fil">Filter
 
-                    <form action="">   <div class="large_select">
-                        <input type="text" hidden id="cat_input" name="category">
-                        <input type="text" hidden id="sup_input" name="supplier">
+                    <form action="" id="filter_form">   <div class="large_select">
+                        <input type="text" hidden id="cat_input" name="category" class="input_data">
+                        <input type="text" hidden id="sup_input" name="supplier" class="input_data">
                            <div class="filtrate">
                                 <div class="category">
                                     <h4>Categories</h4>
@@ -100,12 +94,12 @@
 
                                     <ul>
                                       
+                                            <li>mama gold</li>
                                             <li>demo</li>
                                             <li>demo</li>
+                                            <li>abakaliki</li>
                                             <li>demo</li>
-                                            <li>demo</li>
-                                            <li>demo</li>
-                                            <li>demo</li>
+                                            <li>vln</li>
                                             <li>demo</li>
                                            
                                     
@@ -114,25 +108,49 @@
                            </div>
 
                            <div class="sub">
-                                <button>filter</button>
+                                <button  class="filter_button">filter</button>
                            </div>
-                        </div></form> 
+                        </div>
                         </li>
                         <li class="sort">sort
 
-                            <div class="sorter">
-                                <ul>
-                                    <li>name</li>
-                                    <li>stock</li>
-                                    <li>expiration</li>
-                                </ul>
+                     <div class="sorter">
+                            <input type="text" hidden id="sort_input" name="sort_by">
+                            <input type="text" hidden id="order_input" name="order">
+                               <div class="sort_list">
+                                    <ul>
+                                        <li>name</li>
+                                        <li>quantity</li>
+                                        <li>expiry date</li>
+                                    </ul>
+                               </div>
+
+                               <div class="order">
+                                    <ul>
+                                        <li>ascending</li>
+                                        <li>descending</li>
+                                    </ul>
+                               </div>
+
+                               <div class="sort_sub">
+                                <button  class="">sort</button>
+                           </div>
                             </div>
 
-                        </li>
-                        <li id="search_trig">search</li>
-                    </ul>
-                </div>
+                            
 
+                        </li> 
+
+                        <div class="search_bar">
+                            <div class="search_cont">
+                                <input type="text" placeholder="search" id="search" name="search">
+                                <button disabled="disabled" id="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                         
+                        </div>
+                    </ul></form>
+                </div>
+                  
                 <div class="item_cont">
                     <!-- <div class="item_card">
                         <div class="item">
@@ -153,6 +171,8 @@
                         </div>
 
                     </div> -->
+
+                  
 
 
                 </div>

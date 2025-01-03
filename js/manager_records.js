@@ -1,4 +1,7 @@
 let delay
+let restock=document.querySelector("#restock_form")
+let product_data=document.querySelectorAll("#data");
+let message=document.querySelector(".message");
 
 
 fetch("get_inventory.php", {
@@ -17,19 +20,36 @@ fetch("get_inventory.php", {
         document.querySelector(".items ul").innerHTML+=`
          <li>${datum.name}</li>
         `
+
+        
     })
 
   
-    
 
+  
+    
+   
 
 
 
     let itemss=document.querySelectorAll(".items ul li");
 
 
+    data.forEach((datum)=>{
+       
 
+        itemss.forEach((item, i)=>{
+            item.addEventListener("click", ()=>{
+                document.querySelector("#supplier_input").value=data[i].supplier;
+                document.querySelector("#supplier_id").value=data[i].id;
+            })
+        })
 
+          
+
+        
+    })
+    
 
 
 
@@ -103,10 +123,44 @@ fetch("get_inventory.php", {
 })
 
 
+restock.addEventListener("submit", (e)=>{
+    e.preventDefault();
+
+    const form_data= new FormData(restock)
 
 
+    fetch("restock.php", {
+
+        method: "POST",
+        body: form_data
+    })
+
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data.status);
+        if(data.status==="success"){
+           sale_submit.disabled=true;
+           item_h4.textContent="Select Product"
+
+            product_data.forEach(datum=>{
+               datum.value="";
+            })
 
 
+            message.style.display="flex"
+            message.textContent="Stock Updated";
+
+
+            setTimeout(() => {
+                message.style.display='none';
+                }, 7000);
+        }
+
+        else{
+            console.log("error");
+        }
+    })
+})
 
 
 
