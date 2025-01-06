@@ -3,7 +3,8 @@
 session_start();
 include 'connect.php';
 if(isset($_SESSION["id"])){
-  $store=$_SESSION['store'];
+    $branch=$_SESSION["branch"];
+    $store=$_SESSION["store"];
 }
 
 
@@ -37,9 +38,14 @@ if(isset($_SESSION["id"])){
 
     else{
         $formatted_date = date("Y-m-d", strtotime($date));
-        $query=mysqli_query($conn, "INSERT into inventory (name, quantity, supplier, category, date, image, store) values('$name', '$quantity', '$supplier', '$category', '$formatted_date', '$img_input', '$store' )");
+        $query=mysqli_query($conn, "INSERT into inventory (name, quantity, supplier, category, date, image, store, branch) values('$name', '$quantity', '$supplier', '$category', '$formatted_date', '$img_input', '$store', '$branch' )");
          move_uploaded_file($temp_img, "./pictures/$img_input");
          if($query){
+
+            $update_stock=mysqli_query($conn, "INSERT into purchases(name, supplier, quantity, current_stock, date) values
+            ('$name', '$supplier', '$quantity', '$quantity', CURDATE() )");
+
+            
            
           echo  json_encode(['status'=>'success']);
          }

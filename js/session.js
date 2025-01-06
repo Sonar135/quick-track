@@ -5,7 +5,7 @@ fetch('get_session.php')
                     console.log(data);
                     
                     document.querySelector(".last_cont ul").innerHTML=`
-                    <li>store 1</li> 
+                    <li>${data.branch}</li> 
                     <a href="logout.php"><li>Logout</li></a>`
                 } else {
                    

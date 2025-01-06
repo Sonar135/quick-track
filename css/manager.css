@@ -258,9 +258,12 @@ h3{
     animation: rise .5s ease-in-out;
     display:none;
     background: white;
-    /* border: 1px solid var(--accent_reso); */
+    border-bottom: 2px solid var(--accent_reso);
 }
 
+#lol{
+    display:block;
+}
 
 @keyframes rise {
     0% {

@@ -45,24 +45,30 @@ datas.forEach((datum, i) => {
 
 
 
-const display_none=(filtrate, filter, large_select)=>{
+const display_none=(filtrate, filtrate2, action, select)=>{
 
-    filtrate.forEach((li, i)=>{
+  
           
-     
 
-        filter.addEventListener("mouseleave", ()=>{
+        action.addEventListener("mouseleave", ()=>{
+
+
          
             if(delay) clearTimeout(delay);
+
+
             delay=setTimeout(() => {
-                large_select.style.display="none" 
-                li.style.display="none";
+                select.style.display="none" 
+                filtrate.forEach((li, i)=>{
+                    li.style.display="none";
+            })
                
+            filtrate2.forEach((li, i)=>{
+                li.style.display="none";
+        })
               
             }, 200);
-      
-   
-        })
+         
   
 })
 }
@@ -70,39 +76,46 @@ const display_none=(filtrate, filter, large_select)=>{
 
 
 
-const animate=(filtrate, filter, large_select)=>{
-    filtrate.forEach((li, i)=>{
+const animate=(filtrate, filtrate2, action, select , drop)=>{
+  
          
-        filter.addEventListener("mouseenter", ()=>{
+        action.addEventListener("mouseenter", ()=>{
 
-
+           
             if(delay) clearTimeout(delay);
-            large_select.style.display="block"  
-          
+            select.style.display="block"  
+            drop.style.display="none"
+
+            filtrate.forEach((li, i)=>{
                 li.style.display="block";
+            })
+
+            filtrate2.forEach((li, i)=>{
+                li.style.display="block";
+            })
+              
                
          
         })
       
-    })
 }
 
 
 
+display_none(sort_li,  order_li, sort, sorter)
+display_none(supply_li, category_li, filter, large_select)
 
 
-display_none(supply_li, filter, large_select)
-display_none(category_li, filter, large_select)
 
-animate(supply_li, filter, large_select)
-animate(category_li, filter, large_select)
+animate(sort_li, order_li, sort, sorter, large_select)
+animate(supply_li,category_li, filter, large_select, sorter)
 
 
-display_none(sort_li, sort, sorter)
-display_none(order_li, sort, sorter)
 
-animate(sort_li, sort, sorter)
-animate(order_li, sort, sorter)
+
+
+
+
 
 
 
@@ -192,7 +205,7 @@ function fetchInventory(filters = {}) {
         else{
             // document.querySelector(".null").style.display="none"
             data.forEach((datum)=>{
-                console.log(datum)
+                // console.log(datum)
         
                 item_cont.innerHTML+=`
         <div class="item_card">

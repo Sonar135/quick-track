@@ -49,14 +49,15 @@ else{
 
     else if($checkedpwd===true){
 
-        $store=mysqli_query($conn, "SELECT * FROM stores WHERE manager='$email'");
+        $store=mysqli_query($conn, "SELECT * FROM branches WHERE manager='$email'");
       if($store_row=mysqli_fetch_assoc($store)){
         session_start();
 
         $_SESSION["id"]=$row["id"];
         $_SESSION["email"]=$row["email"];
         $_SESSION["name"]=$row["name"];
-        $_SESSION["store"]=$store_row["name"];
+        $_SESSION["store"]=$row["store"];
+        $_SESSION["branch"]=$store_row["branch"];
      
       
  

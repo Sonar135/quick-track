@@ -8,6 +8,9 @@
     <title>Document</title>
 </head>
 <body>
+  <div class="message">
+
+  </div>
     <div class="header">
         <div class="logo_cont">
 
@@ -34,10 +37,12 @@
 
     <div class="hero">
         <div class="container form_cont">
-           <form method="post"><div class="cent">
+           <form method="post" id="sale_form"><div class="cent">
                 <h1>Record New Sale</h1>
 
-                <input type="hidden" placeholder="Product Name" id="data" class="product_data">
+                <input type="hidden" placeholder="Product Name" id="data" class="product_data field" name="name">
+                <input type="hidden" placeholder="id" id="supplier_id" class="product_data field" name="id">
+                <input type="hidden"  id="supplier_input" class="product_data field">
                 <div class="item_selector field">
                    <h4 class="animate-text">Select Product</h4> 
 
@@ -55,8 +60,8 @@
                         </ul>
                     </div>
                 </div>
-                <input type="text" placeholder="Customer" id="data" class="field">
-                <input type="text" placeholder="Quantity" id="data" class="field">
+                <input type="text" placeholder="Customer" id="data" class="field" name="customer">
+                <input type="text" placeholder="Quantity" id="data" class="field" name="quantity">
         
 
                 <button disabled="disabled" id="sale_submit" class="field">Submit</button>
@@ -90,30 +95,8 @@
                     </div>
                     <div class="tbl-content">
                       <table cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Gerald Maxwell</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
-
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Gerald Maxwell</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
-
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Gerald Maxwell</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
+                        <tbody id="tbody">
+                     
                         
                  
                   
@@ -132,5 +115,5 @@
 <script src="js/dom.js"></script>
 <script src="js/dom2.js"></script>
 <script src="js/session.js"></script>
-<script src="js/manager_records.js"></script>
+<script src="js/sales.js"></script>
 </html>

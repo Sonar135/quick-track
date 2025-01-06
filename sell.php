@@ -11,20 +11,20 @@
     $response="error";
     $name=$_POST["name"];
     $quantity= intval($_POST["quantity"]);
-    $supplier=$_POST["supplier"];
+    $customer=$_POST["customer"];
     $old_stock=$row["quantity"];
-    $current_stock=$old_stock+$quantity;
+    $current_stock=$old_stock-$quantity;
 
   
 
     
 
-    $update_stock=mysqli_query($conn, "INSERT into purchases(name, supplier, quantity, current_stock, date, store, branch) values
-   ('$name', '$supplier', '$quantity', '$current_stock', CURDATE(), '$store', '$branch' )");
+    $update_stock=mysqli_query($conn, "INSERT into sales(name,  quantity, customer, current_stock, date, branch, store) values
+   ('$name', '$quantity', '$customer', '$current_stock', CURDATE(), '$branch', '$store' )");
 
 
 if($update_stock){
-   $update_inventory=mysqli_query($conn, "UPDATE inventory set quantity='$current_stock' where id='$id'");
+   $update_inventory=mysqli_query($conn, "UPDATE inventory set quantity='$current_stock' where id='$id' ");
 
    if($update_inventory){
     $response="success";

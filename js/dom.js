@@ -1,6 +1,5 @@
 let hideTimer
 let search=document.querySelector("#search")
-let btn=document.querySelector("#btn")
 let search_trig=document.querySelector("#search_trig")
 let search_bar=document.querySelector(".search_bar")
 let data=document.querySelectorAll("#data");
@@ -39,16 +38,7 @@ data.forEach((datum, i)=> {
 
 
 
-search.addEventListener("input", ()=>{
-    if(search.value.trim()===''){
-        btn.disabled=true;
-        // filterButton.disabled=true;
-    }
 
-   else if(search.value.trim()!==''){
-        btn.disabled=false;
-    }
-})
 
 
 

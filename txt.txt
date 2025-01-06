@@ -6,3 +6,15 @@ create table purchases(
     current_stock int(255),
     date date
 )
+
+
+
+
+
+
+
+
+
+const script = document.createElement('script');
+script.src = 'js/records.js?v=' + new Date().getTime();
+document.head.appendChild(script);

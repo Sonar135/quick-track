@@ -1,8 +1,7 @@
 let delay
-let restock=document.querySelector("#restock_form")
 let product_data=document.querySelectorAll("#data");
 let message=document.querySelector(".message");
-let sale_form=document.querySelector(".sale_form")
+let sale_form=document.querySelector("#sale_form")
 
 
 fetch("get_inventory.php", {
@@ -14,7 +13,7 @@ fetch("get_inventory.php", {
   
 
     data.forEach((datum)=>{
-       
+        console.log(datum)
 
 
 
@@ -26,11 +25,6 @@ fetch("get_inventory.php", {
     })
 
   
-
-  
-    
-   
-
 
 
     let itemss=document.querySelectorAll(".items ul li");
@@ -124,49 +118,45 @@ fetch("get_inventory.php", {
 })
 
 
-restock.addEventListener("submit", (e)=>{
+
+
+sale_form.addEventListener("submit", (e)=>{
     e.preventDefault();
 
-    const form_data= new FormData(restock)
 
+    const form_data= new FormData(sale_form)
 
-    fetch("restock.php", {
-
+    fetch("sell.php", {
         method: "POST",
-        body: form_data
+        body:form_data
     })
 
     .then(res=>res.json())
     .then(data=>{
         if(data.status==="success"){
-           sale_submit.disabled=true;
-           item_h4.textContent="Select Product"
-
-            product_data.forEach(datum=>{
-               datum.value="";
-            })
-
-
-            message.style.display="flex"
-            message.textContent="Stock Updated";
-
-
-            setTimeout(() => {
-                message.style.display='none';
-                }, 7000);
-        }
-
-        else{
-            console.log("error");
+            sale_submit.disabled=true;
+            item_h4.textContent="Select Product"
+ 
+             product_data.forEach(datum=>{
+                datum.value="";
+             })
+ 
+ 
+             message.style.display="flex"
+             message.textContent="Record Updated";
+ 
+ 
+             setTimeout(() => {
+                 message.style.display='none';
+                 }, 7000);
         }
     })
 })
 
 
 
-
 setInterval(() => {
-    fetch("get_purchase_records.php", {
+    fetch("get_sales_records.php", {
         method:"GET"
     })
     
@@ -187,7 +177,7 @@ setInterval(() => {
                                 <td>${datum.name}</td>
                                 <td>${datum.quantity}</td>
                                 <td>${datum.date}</td>
-                                <td>${datum.supplier}</td>
+                                <td>${datum.customer}</td>
                                 <td > <div class="in-stock">${datum.current_stock}</div></td>
                               </tr>
                 `

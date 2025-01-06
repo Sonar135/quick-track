@@ -2,7 +2,7 @@ let man_form=document.querySelector("#manager_form");
 let form_fields=document.querySelectorAll("#data");
 let message=document.querySelector(".message");
 let submit=document.querySelector("#sale_submit");
-
+let branch_form=document.querySelector("#branch_form")
 
 
 

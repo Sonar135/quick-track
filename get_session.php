@@ -8,7 +8,8 @@ if(isset($_SESSION["id"])){
         'status' => 'success',
         'email' => $_SESSION['email'],
         'name' => $_SESSION['name'],
-        'store' => $_SESSION['store']
+        'store' => $_SESSION['store'],
+        'branch' => $_SESSION['branch']
     ]);
   }
 

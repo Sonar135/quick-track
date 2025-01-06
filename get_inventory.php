@@ -9,14 +9,36 @@ $store = $_SESSION['store'];
 $filters = [];
 $order = "";
 
+
+
+if (!empty($_SESSION['branch'])) {
+    $branch = $_SESSION['branch'];
+    $filters[] = "branch = '$branch'";
+}
+
+
+
+
+
+
+
 // Check for filters
 if (!empty($_GET['supplier'])) {
     $supplier = mysqli_real_escape_string($conn, $_GET['supplier']);
     $filters[] = "supplier = '$supplier'";
 }
+
+
 if (!empty($_GET['category'])) {
     $category = mysqli_real_escape_string($conn, $_GET['category']);
     $filters[] = "category = '$category'";
+}
+
+
+
+if(isset($_GET["v"])){
+    $v = $_GET['v'];
+    $filters[] = "branch = '$v'";
 }
 
 if (!empty($_GET['search'])) {
@@ -42,7 +64,7 @@ if (!empty($_GET['sort_by'])) {
 }
 
 // Query with filters and sorting
-$query = mysqli_query($conn, "SELECT * FROM inventory WHERE store='$store' $where $order");
+$query = mysqli_query($conn, "SELECT * FROM inventory WHERE store='$store'   $where $order");
 
 $data = [];
 

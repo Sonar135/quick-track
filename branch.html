@@ -8,13 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="search_bar">
-        <div class="search_cont">
-            <input type="text" placeholder="search" id="search">
-            <button disabled="disabled" id="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-     
-    </div>
+ 
     <div class="header">
         <div class="logo_cont">
 
@@ -31,7 +25,9 @@
         </div>
 
         <div class="last_cont">
-
+            <ul>
+              
+            </ul>
         </div>
     </div>
 
@@ -46,172 +42,105 @@
 
         <div class="container invent">
             <div class="cent">
-                <div class="filter">
-                    <ul>
-                        <li class="fil">Filter
+              <div class="filter">
+                <ul>
+                    <li class="fil">Filter
 
-                            <div class="categories">
+                <form action="" id="filter_form">   <div class="large_select">
+
+                    
+                    <input type="text" hidden id="cat_input" name="category" class="input_data">
+                    <input type="text" hidden id="sup_input" name="supplier" class="input_data">
+                       <div class="filtrate">
+                            <div class="category">
+                                <h4>Categories</h4>
+
                                 <ul>
-                                    <li>Women</li>
-                                    <li>Men</li>
-                                    <li>Decorations</li>
-                                    <li>Food stuff</li>
-                                    <li>appliances</li>
+                                    <li>Fashion</li>
+                                    <li>Food Stuff</li>
+                                    <li>Electronics</li>
+                                    <li>Beauty</li>
+                                    <li>Furniture</li>
+                                    <li>Beverages</li>
+                                    <li>Food Stuff</li>
                                 </ul>
                             </div>
 
-                            <div class="supplier">
+                            <div class="supply">
+                                <h4>Suppliers</h4>
+
                                 <ul>
-                                    <li>samsung</li>
-                                    <li>danami</li>
-                                    <li>essentials</li>
-                                    <li>midea</li>
-                                    <li>nivea</li>
+                                  
+                                        <li>mama gold</li>
+                                        <li>demo</li>
+                                        <li>demo</li>
+                                        <li>abakaliki</li>
+                                        <li>demo</li>
+                                        <li>vln</li>
+                                        <li>demo</li>
+                                       
+                                
                                 </ul>
                             </div>
+                       </div>
 
-                            <div class="filter_by">
-                                <ul>
-                                    <li class="cat_call">Category</li>
-                                    <li class="sup_call">Supplier</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="sort">sort
+                       <div class="sub">
+                            <button  class="filter_button">filter</button>
+                       </div>
+                    </div>
+                    </li>
 
-                            <div class="sorter">
+                    
+                    <li class="sort">sort
+
+                 <div class="sorter">
+                        <input type="text" hidden id="sort_input" name="sort_by">
+                        <input type="text" hidden id="order_input" name="order">
+                           <div class="sort_list">
                                 <ul>
                                     <li>name</li>
-                                    <li>stock</li>
-                                    <li>expiration</li>
+                                    <li>quantity</li>
+                                    <li>expiry date</li>
                                 </ul>
-                            </div>
+                           </div>
 
-                        </li>
-                        <li id="search_trig">search</li>
-                    </ul>
-                </div>
+                           <div class="order">
+                                <ul>
+                                    <li>ascending</li>
+                                    <li>descending</li>
+                                </ul>
+                           </div>
 
+                           <div class="sort_sub">
+                            <button  class="">sort</button>
+                       </div>
+                        </div>
+
+                        
+
+                    </li> 
+                    <div class="search_bar">
+                      <div class="search_cont">
+                          <input type="text" placeholder="search" id="search" name="search">
+                          <button  id="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                      </div>
+                   
+                  </div>
+                 
+                </ul></form>
+            </div>
                 <div class="item_cont">
-                    <div class="item_card field_block">
-                        <div class="item">
-                            <div class="item_pic">
+              
 
-                            </div>
+               
 
-                            <div class="item_details">
-                              <div class="data"><h4>Stock:</h4> <p>21</p></div>
-                              <div class="data"><h4>Category:</h4> <p>women</p></div>
-                              <div class="data"><h4>Supplier:</h4> <p>Danami</p></div>
-                              <div class="data"><h4>Expiration:</h4> <p>01/03/2026</p></div>
-                            </div>
-                        </div>
+                
 
-                        <div class="item_name">
-                           <h4>Black Stilletos</h4> 
-                        </div>
+             
 
-                    </div>
+           
 
-                    <div class="item_card field_block">
-                        <div class="item">
-                            <div class="item_pic">
-
-                            </div>
-
-                            <div class="item_details">
-                              <div class="data"><h4>Stock:</h4> <p>21</p></div>
-                              <div class="data"><h4>Category:</h4> <p>women</p></div>
-                              <div class="data"><h4>Supplier:</h4> <p>Danami</p></div>
-                              <div class="data"><h4>Expiration:</h4> <p>01/03/2026</p></div>
-                            </div>
-                        </div>
-
-                        <div class="item_name">
-                           <h4>Black Stilletos</h4> 
-                        </div>
-
-                    </div>
-
-                    <div class="item_card field_block">
-                        <div class="item">
-                            <div class="item_pic">
-
-                            </div>
-
-                            <div class="item_details">
-                              <div class="data"><h4>Stock:</h4> <p>21</p></div>
-                              <div class="data"><h4>Category:</h4> <p>women</p></div>
-                              <div class="data"><h4>Supplier:</h4> <p>Danami</p></div>
-                              <div class="data"><h4>Expiration:</h4> <p>01/03/2026</p></div>
-                            </div>
-                        </div>
-
-                        <div class="item_name">
-                           <h4>Black Stilletos</h4> 
-                        </div>
-
-                    </div>
-
-                    <div class="item_card field_block">
-                        <div class="item">
-                            <div class="item_pic">
-
-                            </div>
-
-                            <div class="item_details">
-                              <div class="data"><h4>Stock:</h4> <p>21</p></div>
-                              <div class="data"><h4>Category:</h4> <p>women</p></div>
-                              <div class="data"><h4>Supplier:</h4> <p>Danami</p></div>
-                              <div class="data"><h4>Expiration:</h4> <p>01/03/2026</p></div>
-                            </div>
-                        </div>
-
-                        <div class="item_name">
-                           <h4>Black Stilletos</h4> 
-                        </div>
-
-                    </div>
-
-                    <div class="item_card field_block">
-                        <div class="item">
-                            <div class="item_pic">
-
-                            </div>
-
-                            <div class="item_details field_block">
-                              <div class="data"><h4>Stock:</h4> <p>21</p></div>
-                              <div class="data"><h4>Category:</h4> <p>women</p></div>
-                              <div class="data"><h4>Supplier:</h4> <p>Danami</p></div>
-                              <div class="data"><h4>Expiration:</h4> <p>01/03/2026</p></div>
-                            </div>
-                        </div>
-
-                        <div class="item_name">
-                           <h4>Black Stilletos</h4> 
-                        </div>
-
-                    </div>
-
-                    <div class="item_card field_block">
-                        <div class="item">
-                            <div class="item_pic">
-
-                            </div>
-
-                            <div class="item_details">
-                              <div class="data"><h4>Stock:</h4> <p>21</p></div>
-                              <div class="data"><h4>Category:</h4> <p>women</p></div>
-                              <div class="data"><h4>Supplier:</h4> <p>Danami</p></div>
-                              <div class="data"><h4>Expiration:</h4> <p>01/03/2026</p></div>
-                            </div>
-                        </div>
-
-                        <div class="item_name">
-                           <h4>Black Stilletos</h4> 
-                        </div>
-
-                    </div>
+                
                 </div>
             </div>
         </div>
@@ -242,30 +171,8 @@
                     </div>
                     <div class="tbl-content">
                       <table cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Gerald Maxwell</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
-
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Gerald Maxwell</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
-
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Gerald Maxwell</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
+                        <tbody id="sales">
+                    
                         
                  
                   
@@ -306,30 +213,8 @@
                     </div>
                     <div class="tbl-content">
                       <table cellpadding="0" cellspacing="0" border="0">
-                        <tbody>
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Danami</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
-
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Danami</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
-
-                          <tr>
-                            <td>Black Stilletos</td>
-                            <td>100 </td>
-                            <td>01/03/2025</td>
-                            <td>Danami</td>
-                            <td > <div class="in-stock"> 4000</div></td>
-                          </tr>
+                        <tbody id="tbody">
+            
                         
                  
                   
@@ -348,4 +233,6 @@
 <script src="js/dom.js"></script>
 <script src="js/dom2.js"></script>
 <script src="js/records.js"></script>
+<script src="js/branch.js"></script>
+<script src="js/admin_session.js"></script>
 </html>

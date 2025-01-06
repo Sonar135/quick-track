@@ -187,9 +187,7 @@ h3{
     position:relative;
     box-shadow: var(--shadow);
     margin:100px 0px 0 60px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+    display:block;
 }
 
 .card_add a{
@@ -204,6 +202,7 @@ h3{
     display:flex;
     justify-content: center;
     align-items: center;
+    margin:65px auto;
 }
 
 .card_add a:hover{
