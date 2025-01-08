@@ -38,12 +38,12 @@ fetch(`get_branches.php`, {
                     <div class="pill_overlay">
                         <a href="branch.html?v=${datum.branch}" class="delete" id="rise">Branch Data</a> 
                         <a href="" class="delete" id="rise"> Delete Branch</a>
-                        <a href="" class="delete" id="rise">Assign Manager</a>
+                        <a href="assign_manager.html?v=${datum.branch}" class="delete" id="rise">Assign Manager</a>
                     </div>
                 </div>
 
                 <h3>${datum.branch}</h3>
-                <h3>combined inventory level: ${datum.total==="null"?"0":datum.total}</h3>
+                <h3>combined inventory level: ${datum.total}</h3>
           
 
             
