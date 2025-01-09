@@ -49,7 +49,7 @@
 
 
                 $data[]=[
-                    
+                    "id"=>$row["id"],
                     "branch"=>$row["branch"],
                     "store"=>$row["store"],
                     "addresss"=>$row["address"],

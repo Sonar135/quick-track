@@ -3,6 +3,12 @@
     include "connect.php";
     include "functions.php";
 
+    session_start();
+
+
+    if(isset($_SESSION["id"])){
+        $store=$_SESSION["store"];
+    }
 
 
 
@@ -30,6 +36,8 @@
 
        
         
+
+
 
 
 
@@ -66,13 +74,13 @@
 
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
           
-            $stmt = mysqli_prepare($conn, 'INSERT INTO managers (name, email, phone, password) VALUES (?, ?, ?, ?)');
+            $stmt = mysqli_prepare($conn, 'INSERT INTO managers (name, email, phone, password, store) VALUES (?, ?, ?, ?,?)');
             if (!$stmt) {
                 throw new Exception('Failed to prepare statement: ' . mysqli_error($conn));
             }
         
             // Bind the parameters
-            mysqli_stmt_bind_param($stmt, 'ssss', $username, $email, $phone, $password);
+            mysqli_stmt_bind_param($stmt, 'sssss', $username, $email, $phone, $password, $store);
         
             // Execute the statement
             if (!mysqli_stmt_execute($stmt)) {

@@ -269,24 +269,25 @@ button:disabled{
     border-radius: 10px;
     left: 0; 
     right: 0; 
-    top:0;
+    top:50px;
     margin-left: auto; 
     margin-right: auto; 
-    animation: fade_out 7s;
-    z-index:100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
-    margin-top:50px;
+    animation: fade_out .5s;
+    z-index:99999999999999999;
+    /* margin-top:50px; */
 }
+
+
 
 
 
 @keyframes fade_out {
     from{
-        opacity:1;
-        /* z-index:1000000000000000000000000000000000000000000000; */
+        transform: translateY(-40px);
 }
 
     to{
-        opacity:0;
-        z-index:0;
+        transform: translateY(0px);
+
     }
 }

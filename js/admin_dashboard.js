@@ -1,4 +1,4 @@
-
+let message=document.querySelector(".message");
 
 
 
@@ -37,7 +37,7 @@ fetch(`get_branches.php`, {
                     <img src="images/istockphoto-1412353022-612x612.jpg" alt="">
                     <div class="pill_overlay">
                         <a href="branch.html?v=${datum.branch}" class="delete" id="rise">Branch Data</a> 
-                        <a href="" class="delete" id="rise"> Delete Branch</a>
+                        <div href="" class="delete delete_id" id="rise"> Delete Branch</div>
                         <a href="assign_manager.html?v=${datum.branch}" class="delete" id="rise">Assign Manager</a>
                     </div>
                 </div>
@@ -53,6 +53,24 @@ fetch(`get_branches.php`, {
                   
     `
     
+
+    document.querySelectorAll(".delete_id").forEach((manager,j) =>{
+        manager.addEventListener("click", ()=>{
+            document.querySelector(".screen_overlay").style.display="block"
+            document.querySelector(".hero").style.animation=""
+
+            // document.querySelector(".hero").classList.remove("hero_blur");
+
+            // void document.querySelector(".hero").offsetWidth;
+           
+
+            document.querySelector(".hero").classList.add("hero_blur")
+
+            document.querySelector("#name").textContent=data[j].branch
+            document.querySelector("#branch_id").value=data[j].id
+            document.querySelector("#branch").value=data[j].branch
+        })
+    })
         
         })
     
@@ -125,3 +143,56 @@ fetch(`get_branches.php`, {
 })
 
 
+
+
+document.querySelector("#no").addEventListener("click", ()=>{
+    document.querySelector(".screen_overlay").style.display="none"
+                document.querySelector(".hero").classList.remove("hero_blur")
+                document.querySelector(".hero").style.animation="remove_blur .6s"
+                document.querySelector("#name").textContent=""
+                document.querySelector("#branch_id").value=""  
+                document.querySelector("#branch").value=""
+})
+
+
+
+const delete_branch_form=document.querySelector("#delete_form")
+
+delete_branch_form.addEventListener("submit", (e)=>{
+    e.preventDefault()
+
+    form_data=new FormData(delete_branch_form)
+
+    fetch("delete_branch.php", {
+        method: "POST",
+        body: form_data
+    }).then(res=>res.json()).then(data=>{
+
+        if(data.status==="in_stock"){
+            message.style.display='flex';
+            message.textContent="You still have items in branch inventory"
+
+
+            setTimeout(() => {
+            message.style.display='none';
+            }, 7000);
+        }
+
+      else  if(data.status==="success"){
+
+            message.style.display='flex';
+            message.textContent="Account Deleted"
+            sale_submit.disabled =true;
+
+            setTimeout(() => {
+            message.style.display='none';
+            }, 7000);
+
+
+            setTimeout(()=>{
+                location.reload();
+            }, 1500)
+
+        }
+    })
+})

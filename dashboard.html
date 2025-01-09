@@ -8,6 +8,28 @@
     <title>Quick Track</title>
 </head>
 <body>
+
+    <div class="message">
+
+    </div>
+
+    <div class="screen_overlay">
+        <div class="container action">
+           <div class="ac_cent">
+            <h1>Delete <span id="name">Branch</span>'s Account?</h1>
+
+            <div class="options">
+            <form id="delete_form"> 
+                <input type="text" id="branch_id" hidden name="id">
+                <input type="text" id="branch" hidden name="branch">
+                <button id="sale_submit">Yes</button></form> 
+                <button id="no">No</button>
+            </div>
+           </div>
+        </div>
+    </div>
+
+
     <div class="header">
         <div class="logo_cont">
 
@@ -30,36 +52,38 @@
         </div>
     </div>
 
+    <div class="side_bar">
+        <ul>
+          <a href=""> <li>
+            <div class="ico">
+                <i class="fa-solid fa-store"></i>
+            </div>
+
+            <h5>Stores</h5>
+          </li></a> 
+
+          <a href=""> <li>
+            <div class="ico">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <h5>Notifications</h5>
+          </li></a> 
+
+          <a href=""> <li>
+            <div class="ico">
+                <i class="fa-solid fa-door-open"></i>
+            </div>
+
+            <h5>Sign Out</h5>
+          </li></a> 
+
+     
+        </ul>
+    </div>
+
     <div class="hero">
-        <div class="side_bar">
-            <ul>
-              <a href=""> <li>
-                <div class="ico">
-                    <i class="fa-solid fa-store"></i>
-                </div>
-
-                <h5>Stores</h5>
-              </li></a> 
-
-              <a href=""> <li>
-                <div class="ico">
-                    <i class="fa-solid fa-bell"></i>
-                </div>
-
-                <h5>Notifications</h5>
-              </li></a> 
-
-              <a href=""> <li>
-                <div class="ico">
-                    <i class="fa-solid fa-door-open"></i>
-                </div>
-
-                <h5>Sign Out</h5>
-              </li></a> 
-
-         
-            </ul>
-        </div>
+   
         <div class="container cont1">
 
             <div class="card_add field_block">
@@ -74,6 +98,7 @@
         </div>
     </div>
 </body>
+<script src="js/dom1.js"></script>
 <script src="js/dom2.js"></script>
 <script src="js/admin_session.js"></script>
 <script src="js/admin_dashboard.js"></script>
