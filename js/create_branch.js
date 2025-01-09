@@ -37,5 +37,16 @@ branch_form.addEventListener("submit", (e)=>{
 
             });
         }
+
+
+        else if(data.status==="exists"){
+            message.style.display='flex';
+            message.textContent="branch with name already exists"
+          
+
+            setTimeout(() => {
+            message.style.display='none';
+            }, 7000);
+        }
     })
 })

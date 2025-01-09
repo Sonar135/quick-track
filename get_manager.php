@@ -2,24 +2,32 @@
 
     include "connect.php";
 
-
+    $filters=[];
     session_start();
     $store=$_SESSION["store"];
 
+    if(isset($_GET["v"])){
+        $v = $_GET['v'];
+        $filters[] = "id = '$v'";
+    }
+    $where="";
+
+    if (count($filters) > 0) {
+        $where = " AND " . implode(" AND ", $filters);
+    }
 
 
 
-
-
-    $query=mysqli_query($conn, "SELECT * from managers where  store='$store'");
+    $query=mysqli_query($conn, "SELECT * from managers where  store='$store' $where");
     $data=[];
   
 
     if(mysqli_num_rows($query)<1){
         $data=[
              "status"=>"null"  
-            
             ];
+
+            
     }
 
     else{
@@ -43,6 +51,7 @@
 
 
                 $data[]=[
+                    "id"=>$row["id"],
                     "branch"=>$branch,
                     "name"=>$row["name"],
                     "email"=>$row["email"],

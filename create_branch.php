@@ -17,6 +17,8 @@ if(mysqli_num_rows(mysqli_query($conn, "SELECT * from branches where branch='$br
     $data=[
         "status"=>"exists"
     ];
+
+    echo json_encode($data);
     exit();
 }
 

@@ -29,7 +29,7 @@ fetch("get_manager.php", {
             
                 <div class="card">
                     <div class="profile_pic">
-                        <i class="fa-solid fa-user"></i>
+                       <i class="fa-solid fa-people-roof"></i>
                     </div>
 
                     <div class="name">
@@ -41,9 +41,9 @@ fetch("get_manager.php", {
                     </div>
 
                     <div class="pill">
-                        <div class="icons"><i class="fa-solid fa-trash"></i></div>
-                        <div class="icons"><i class="fa-solid fa-pen"></i></div>
-                        <div class="icons"><i class="fa-regular fa-eye"></i></div>
+                          <a href="" class="icons"><i class="fa-solid fa-trash"></i></a> 
+                       <a href="edit_manager.html?v=${datum.id}" class="icons"><i class="fa-solid fa-pen"></i></a> 
+                       <a href="view_manager.html?v=${datum.id}" class="icons"> <i class="fa-regular fa-eye"></i></a>
                      
                     </div>
                 </div>
