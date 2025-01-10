@@ -10,7 +10,7 @@ product_form.addEventListener("submit", (e)=>{
    const form_data=new FormData(product_form);
 
 
-   fetch("new_product.php", {
+   fetch("update_product.php", {
     method: 'POST',
     body: form_data
 })
@@ -19,10 +19,9 @@ product_form.addEventListener("submit", (e)=>{
 .then(data=>{
     if(data.status==="success"){
         message.style.display="flex"
-       message.textContent="item inserted";
+       message.textContent="Updated Successfully";
 
-       cat_h4.textContent="category";
-       img_label.textContent="product image"
+    
 
        setTimeout(() => {
         message.style.display='none';
@@ -44,7 +43,7 @@ product_form.addEventListener("submit", (e)=>{
             message.style.display="none";
         }, 7000);
 
-        product_data[5].value="";
+        product_data[3].value="";
     }
 
     else if(data.status==="quantity_invalid"){
@@ -54,25 +53,38 @@ product_form.addEventListener("submit", (e)=>{
             message.style.disabled="none";
         }, 7000);
 
-        product_data[2].value="";
+        product_data[1].value="";
     }
 })
 })
 
+function decodeHtml(html) {
+    const textArea = document.createElement("textarea");
+    textArea.innerHTML = html;
+    return textArea.value;
+}
 
 
+const urlParams = new URLSearchParams(window.location.search);
 
 
-fileInput.addEventListener("change", ()=>{
-    const file = fileInput.files[0]; // Get the first file
+const branchId = urlParams.get('q');
 
-    img_label.textContent = `${file.name}`;
-    document.querySelector(".img_input").value=`${file.name}`
 
-    const event = new Event("input", { bubbles: true });
-    document.querySelector(".img_input").dispatchEvent(event);
-        // sale_submit.disabled=false;
- 
+fetch(`get_inventory.php?q=${branchId}`, {
+    method:"GET"
+}).then(res=>res.json()).then(data=>{
+    data.forEach((datum, i)=>{
+        document.querySelector(".name").value=decodeHtml(datum.name) 
+        document.querySelector(".date").value=datum.date
+        document.querySelector(".quantity").value=datum.quantity
+        document.querySelector(".id").value=datum.id
+        document.querySelector("#target").textContent=decodeHtml(datum.name) 
+
+    })
 })
+
+
+
 
 

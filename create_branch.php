@@ -10,8 +10,8 @@ if(isset($_SESSION["id"])){
 $data=[
     "status"=>"error"
 ];
-$branch=$_POST["name"];
-$address=$_POST["address"];
+$branch=htmlentities($_POST["name"]);
+$address=htmlentities($_POST["address"]);
 
 if(mysqli_num_rows(mysqli_query($conn, "SELECT * from branches where branch='$branch'"))>0){
     $data=[

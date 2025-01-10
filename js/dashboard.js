@@ -16,6 +16,9 @@ let order_li=document.querySelectorAll(".order ul li")
 let sort_input=document.querySelector("#sort_input")
 let order_input=document.querySelector("#order_input")
 let sortForm=document.querySelector("#sort_form")
+let message=document.querySelector(".message");
+
+
 
 datas.forEach((datum, i) => {
     datum.addEventListener("input", () => {
@@ -226,12 +229,35 @@ function fetchInventory(filters = {}) {
                           <div class="item_name">
                              <h4>${datum.name}</h4> 
                           </div>
-        
+                         <div class="actions_cont">
+                            <a href="update_product.html?q=${datum.id}" class="actions"><i class="fa-solid fa-pen"></i></a>
+                            <div class="actions delete_id" ><i class="fa-solid fa-trash"></i></div>
+                        </div>
                       </div>
         
         
                       
         `
+
+        document.querySelectorAll(".delete_id").forEach((manager,j) =>{
+            manager.addEventListener("click", ()=>{
+                document.querySelector(".screen_overlay").style.display="block"
+                document.querySelector(".hero").style.animation=""
+    
+                // document.querySelector(".hero").classList.remove("hero_blur");
+    
+                // void document.querySelector(".hero").offsetWidth;
+               
+    
+                document.querySelector(".hero").classList.add("hero_blur")
+                
+                document.querySelector("#name").innerHTML=`${data[j].name}`
+                document.querySelector("#id").value=data[j].id
+                document.querySelector(".search_bar").style.display="none";
+
+            
+            })
+        })
         
             
             })
@@ -282,3 +308,79 @@ form.addEventListener("submit", (e) => {
 
 fetchInventory()
 
+
+
+document.querySelector("#no").addEventListener("click", ()=>{
+    document.querySelector(".screen_overlay").style.display="none"
+                document.querySelector(".hero").classList.remove("hero_blur")
+                document.querySelector(".hero").style.animation="remove_blur .6s"
+                document.querySelector("#name").textContent=""
+                document.querySelector("#id").value=""    
+                document.querySelector(".search_bar").style.display="block";
+})
+
+
+
+
+
+const delete_form=document.querySelector("#delete_form")
+
+delete_form.addEventListener("submit", (e)=>{
+    e.preventDefault()
+
+    form_data=new FormData(delete_form)
+
+    fetch("delete_item.php", {
+        method: "POST",
+        body: form_data
+    }).then(res=>res.json()).then(data=>{
+
+     
+
+    if(data.status==="success"){
+
+            message.style.display='flex';
+            message.textContent="Item Deleted"
+            sale_submit.disabled =true;
+
+            setTimeout(() => {
+            message.style.display='none';
+            }, 7000);
+
+
+            setTimeout(()=>{
+                location.reload();
+            }, 600)
+
+        }
+    })
+})
+
+
+
+fetch("get_exp.php", {
+    method:"GET"
+})
+
+.then(res=>res.json())
+.then(data=>{
+
+    
+
+
+    if(data.status==="no_record"){
+       
+    }
+
+
+    else{
+
+        document.querySelector(".notify").textContent=data.length
+     
+    }
+
+
+    
+
+   
+})

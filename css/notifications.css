@@ -1,0 +1,50 @@
+.hero{
+    padding-left: 100px;
+}
+
+.exp_img{
+    width:45px;
+    height:45px;
+    border-radius: 45px;
+    background: #000;
+    margin:1px auto;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.exp_img img{
+    width:auto;
+    height:100%;
+    width:100%;
+    object-fit:cover;
+}
+
+
+td{
+    font-weight:600;
+    font-size:15px;
+}
+
+tr{
+    display:none;
+    animation: rise .5s ease-in-out;
+}
+
+
+
+@keyframes rise {
+    0% {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notify{
+    color:white;
+}

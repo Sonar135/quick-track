@@ -1,5 +1,12 @@
 let delay
 
+function decodeHtml(html) {
+    const textArea = document.createElement("textarea");
+    textArea.innerHTML = html;
+    return textArea.value;
+}
+
+
 const urlParams = new URLSearchParams(window.location.search);
 
 
@@ -18,8 +25,8 @@ fetch(`get_branches.php?v=${branchId}`, {
 
 
     data.forEach(datum=>{
-        document.querySelector(".branch_name").value=datum.branch;
-        document.querySelector(".assign_header").textContent+=` ${datum.branch}`;
+        document.querySelector(".branch_name").value=decodeHtml(datum.branch) ;
+        document.querySelector(".assign_header").textContent+= decodeHtml(datum.branch) 
     })
    
 })

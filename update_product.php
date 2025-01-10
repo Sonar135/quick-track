@@ -17,14 +17,11 @@ if(  !preg_match("/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/", $_POST[
 
 $dateTime = DateTime::createFromFormat("d/m/Y", $_POST["date"]);
       
-    $name= htmlentities( $_POST["name"]);
+    $name=htmlentities($_POST["name"]);
     $quantity=$_POST["quantity"];
-    $supplier= htmlentities( $_POST["supplier"]);
-    $category=$_POST["category"];
+    $id=$_POST["id"];
     $date=$dateTime->format("y-m-d");
-    $img_input= htmlentities($_POST["img_input"]);
-
-    $temp_img=$_FILES['image']['tmp_name'];
+    
 
 
 
@@ -39,12 +36,10 @@ $dateTime = DateTime::createFromFormat("d/m/Y", $_POST["date"]);
 
     else{
         $formatted_date = date("Y-m-d", strtotime($date));
-        $query=mysqli_query($conn, "INSERT into inventory (name, quantity, supplier, category, date, image, store, branch) values('$name', '$quantity', '$supplier', '$category', '$formatted_date', '$img_input', '$store', '$branch' )");
-         move_uploaded_file($temp_img, "./pictures/$img_input");
+        $query=mysqli_query($conn, "UPDATE inventory set name='$name', quantity='$quantity', date='$formatted_date' where id='$id'");
          if($query){
 
-            $update_stock=mysqli_query($conn, "INSERT into purchases(name, supplier, quantity, current_stock, date, store, branch) values
-            ('$name', '$supplier', '$quantity', '$quantity', CURDATE(), '$store', '$branch' )");
+
 
             
            

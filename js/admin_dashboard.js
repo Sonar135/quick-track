@@ -1,6 +1,11 @@
 let message=document.querySelector(".message");
 
-
+  
+function decodeHtml(html) {
+    const textArea = document.createElement("textarea");
+    textArea.innerHTML = html;
+    return textArea.value;
+}
 
 
 
@@ -52,6 +57,7 @@ fetch(`get_branches.php`, {
     
                   
     `
+  
     
 
     document.querySelectorAll(".delete_id").forEach((manager,j) =>{
@@ -66,9 +72,9 @@ fetch(`get_branches.php`, {
 
             document.querySelector(".hero").classList.add("hero_blur")
 
-            document.querySelector("#name").textContent=data[j].branch
+            document.querySelector("#name").textContent=decodeHtml(data[j].branch) 
             document.querySelector("#branch_id").value=data[j].id
-            document.querySelector("#branch").value=data[j].branch
+            document.querySelector("#branch").value=  decodeHtml(data[j].branch) 
         })
     })
         

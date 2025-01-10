@@ -86,7 +86,8 @@
     height:800px;
     left:0;
     top:60px;
-    box-shadow: var(--shadow);
+    /* box-shadow: var(--shadow); */
+    z-index:9999999999999;
 }
 
 .side_bar ul{

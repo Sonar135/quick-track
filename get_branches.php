@@ -12,7 +12,7 @@
 
 
     if(isset($_GET["v"])){
-        $v = $_GET['v'];
+        $v =   htmlentities( $_GET['v']);
         $filters[] = "branch = '$v'";
     }
 

@@ -33,15 +33,15 @@ fetch(`get_manager.php?v=${branchId}`, {
             
                  <div class="profile_card">
                     <div class="prof_cont">
-                        <div class="prof">
+                        <div class="prof data">
                             <i class="fa-solid fa-people-roof"></i>
                         </div>
                     </div>
 
-                    <div class="data">${datum.name}</div>
-                    <div class="data">${datum.email}</div>
-                    <div class="data">${datum.phone}</div>
-                    <div class="data">${datum.branch}</div>
+                    <div class="data datum">${datum.name}</div>
+                    <div class="data datum">${datum.email}</div>
+                    <div class="data datum">${datum.phone}</div>
+                    <div class="data datum">${datum.branch}</div>
                 </div>
             `
         });

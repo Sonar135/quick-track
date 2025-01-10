@@ -37,9 +37,16 @@ if (!empty($_GET['category'])) {
 
 
 if(isset($_GET["v"])){
-    $v = $_GET['v'];
+    $v = htmlentities($_GET['v']) ;
     $filters[] = "branch = '$v'";
 }
+
+
+if(isset($_GET["q"])){
+    $q = $_GET['q'];
+    $filters[] = "id = '$q'";
+}
+
 
 if (!empty($_GET['search'])) {
     $search = mysqli_real_escape_string($conn, $_GET['search']);
@@ -86,7 +93,7 @@ else{
                 "supplier" => $row["supplier"],
                 "category" => $row["category"],
                 "image" => $row["image"],
-                "date" => $row["date"],
+                "date" => date("d/m/Y", strtotime($row["date"])),
                 "quantity" => $row["quantity"]
             ];
         

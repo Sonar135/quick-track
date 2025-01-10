@@ -11,7 +11,7 @@
 
 body{
     overflow-y: scroll;
-    background: #faf6f6;
+    background: white;
 }
 
 
@@ -119,8 +119,8 @@ h3{
     left:0;
     top:60px;
     /* box-shadow: var(--shadow); */
-    border-right: 2px solid var(--accent_reso);
     background: white;
+    z-index: 9999999999999999;
 }
 
 .side_bar ul{
@@ -135,6 +135,10 @@ h3{
     height:100px;
     color:black;
     /* padding:10px; */
+}
+
+.notify{
+    color:white;
 }
 
 .side_bar ul li:hover .ico{
@@ -259,6 +263,7 @@ h3{
     display:none;
     background: white;
     border-bottom: 2px solid var(--accent_reso);
+    position:relative;
 }
 
 #lol{
@@ -732,3 +737,205 @@ h3{
 }
 
 
+
+.actions_cont{
+    position:absolute;
+    bottom:0;
+    display:flex;
+    bottom:-10px;
+    justify-content: space-between;
+    width:70px;
+    left:150px;
+}
+
+.actions{
+    width:25px;
+    height:25px;
+    border-radius: 25px;
+    background: var(--accent_reso);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    cursor:pointer;
+}
+
+.actions i{
+    color:white;
+    font-size:12px;
+}
+
+
+
+.message{
+    position:fixed;
+    background: var(--accent_reso);
+    color:white;
+    height:40px;
+    width:20%;
+    margin:auto;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    padding:10px;
+    border-radius: 10px;
+    left: 0; 
+    right: 0; 
+    top:50px;
+    margin-left: auto; 
+    margin-right: auto; 
+    animation: fade_out .5s;
+    z-index:99999999999999999;
+    /* margin-top:50px; */
+}
+
+
+
+
+
+@keyframes fade_out {
+    from{
+        transform: translateY(-40px);
+}
+
+    to{
+        transform: translateY(0px);
+
+    }
+}
+
+
+.screen_overlay{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:9999999;
+    background: #00000065;
+    animation: overlay .6s ease-in-out;
+    display:none;
+}
+
+
+@keyframes overlay {
+    from{
+        opacity:0;
+        background: #00000000;
+    }
+
+    to{
+        opacity:1;
+        background: #00000065;
+    }
+}
+
+.hero{
+    width:100%;
+    padding-bottom:80px;
+    margin-top:60px;
+}
+
+
+.hero_blur{
+    filter: blur(7px);
+    animation:blur .6s ease-in-out;
+}
+
+
+@keyframes blur {
+    from{
+        filter: blur(0px);
+    }
+
+    to{
+        filter: blur(7px);
+    }
+}
+
+
+@keyframes remove_blur {
+    from{
+        filter: blur(7px);
+    }
+
+    to{
+        filter: blur(0px);
+    }
+}
+
+
+.action{
+    padding-top:1px;
+    height:500px;
+}
+
+.ac_cent{
+    width:1200px;
+    margin: 150px auto;
+    height:300px;
+}
+
+.ac_cent h1{
+    text-align: center;
+    color:white;
+    margin:30px 0;
+}
+
+.options{
+    width:400px;
+    margin:100px auto;
+    display:flex;
+    justify-content: space-between;
+}
+
+.options button{
+    width:100px;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--accent_reso);
+    color:white;
+    font-weight:700;
+    border-radius: 18px;
+    border: none;
+    font-size:15px;
+    cursor:pointer;
+    animation: bounce .6s ease-in-out;
+    transition:.5s;
+    /* display:none; */
+}
+
+.options button:hover{
+    background: var(--accent_hover);
+    transition:.5s;
+}
+
+
+@keyframes bounce {
+    from{
+        opacity:0;
+        transform: translateY(0px);
+    }
+
+    50%{
+        opacity:1;
+        transform: translateY(-30px);
+    }
+
+    75%{
+        opacity:1;
+        transform: translateY(0px);
+    }
+
+    90%{
+        opacity:1;
+        transform: translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform: translateY(0px);
+    }
+}
