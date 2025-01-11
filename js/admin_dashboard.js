@@ -20,7 +20,7 @@ fetch(`get_branches.php`, {
 
 
         
-        document.querySelector(".cont1").innerHTML = "  <h1>No branch</h1>";
+      
         
           
     

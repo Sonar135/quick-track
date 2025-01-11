@@ -112,6 +112,17 @@ h3{
     text-align: center;
 }
 
+
+.logo_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size:18px;
+    color:var(--accent_reso);
+    cursor:default;
+}
+
 .form_cont input{
     margin:50px auto;
     width:400px;

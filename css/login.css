@@ -134,6 +134,17 @@ h3{
 }
 
 
+.logo_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size:18px;
+    color:var(--accent_reso);
+    cursor:default;
+}
+
+
 @keyframes rise {
     from{
         opacity:0;

@@ -57,6 +57,18 @@ body{
 
 
 
+.logo_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size:18px;
+    color:var(--accent_reso);
+    cursor:default;
+}
+
+
+
 
 .mid_cont ul, .last_cont ul{
     width:100%;
@@ -646,7 +658,6 @@ h3{
     transition:.5s;
     border-radius: 8px;
     animation: rise_li .5s ease-in-out;
-    display:none;
 }
 
 

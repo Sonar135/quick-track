@@ -13,7 +13,7 @@ $data=[
 $branch=htmlentities($_POST["name"]);
 $address=htmlentities($_POST["address"]);
 
-if(mysqli_num_rows(mysqli_query($conn, "SELECT * from branches where branch='$branch'"))>0){
+if(mysqli_num_rows(mysqli_query($conn, "SELECT * from branches where branch='$branch' and store='$store'"))>0){
     $data=[
         "status"=>"exists"
     ];

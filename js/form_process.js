@@ -6,6 +6,15 @@ let branch_form=document.querySelector("#branch_form")
 
 
 
+document.addEventListener("DOMContentLoaded", ()=>{
+    form_fields.forEach(datum => {
+        datum.value="";
+      
+
+    });
+})
+
+
 
 form_fields.forEach((datum, i)=>{
 
@@ -67,6 +76,7 @@ man_form.addEventListener("submit", (e)=>{
 
             
                 form_fields[1].value="";
+                form_fields[3].value="";
                 submit.disabled =true;
         
             setTimeout(() => {

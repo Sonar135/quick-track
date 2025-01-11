@@ -239,6 +239,15 @@ button:disabled{
     color:white;
 }
 
+.logo_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size:18px;
+    color:var(--accent_reso);
+    cursor:default;
+}
 
 .message{
     position:fixed;

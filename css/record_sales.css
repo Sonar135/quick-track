@@ -310,6 +310,17 @@ button:disabled{
 }
 
 
+.logo_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size:18px;
+    color:var(--accent_reso);
+    cursor:default;
+}
+
+
 .record{
     height:auto;
     margin-top:50px;

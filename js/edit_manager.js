@@ -20,6 +20,7 @@ fetch(`get_manager.php?v=${branchId}`,{
         data.forEach(datum => {
             document.querySelector(".name").value=datum.name
             document.querySelector(".phone").value=datum.phone
+            document.querySelector("span").innerHTML=datum.name
         })
 
         const event = new Event("input", { bubbles: true });

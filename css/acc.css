@@ -230,6 +230,16 @@ h3{
     display:none;
 }
 
+.logo_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size:18px;
+    color:var(--accent_reso);
+    cursor:default;
+}
+
 
 @keyframes overlay {
     from{
@@ -244,6 +254,11 @@ h3{
 }
 
 
+.card_add h4{
+    text-align: center;
+    /* margin:30px 0; */
+    margin-top:-20px;
+}
 
 
 .hero_blur{

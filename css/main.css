@@ -91,6 +91,20 @@
 }
 
 
+.logo_cont{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight:600;
+    font-size:18px;
+    color:var(--accent_reso);
+    cursor:default;
+}
+
+.card_add h4{
+    text-align: center;
+}
+
 .notify{
     color:white;
 }

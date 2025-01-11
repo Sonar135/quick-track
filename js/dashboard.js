@@ -1,7 +1,5 @@
 let item_cont=document.querySelector(".item_cont");
 let large_select=document.querySelector(".large_select");
-let supply_li=document.querySelectorAll(".supply ul li")
-let category_li=document.querySelectorAll(".category ul li")
 let filter=document.querySelector(".fil");
 let cat_input=document.querySelector("#cat_input")
 let sup_input=document.querySelector("#sup_input")
@@ -105,13 +103,7 @@ const animate=(filtrate, filtrate2, action, select , drop)=>{
 
 
 
-display_none(sort_li,  order_li, sort, sorter)
-display_none(supply_li, category_li, filter, large_select)
 
-
-
-animate(sort_li, order_li, sort, sorter, large_select)
-animate(supply_li,category_li, filter, large_select, sorter)
 
 
 
@@ -157,12 +149,80 @@ const get_input=(input_li, input)=>{
 }
 
 
+let all_categories=[]
+let unique_categories=[]
+let all_suppliers=[]
+let unique_suppliers=[]
+
+
+
+fetch("get_inventory.php", {
+    method:"GET",
+}).then(res=>res.json()).then(data=>{
+
+
+
+  
+
+
+    data.forEach(datum=>{
+        let set_categories= (datum.category)
+
+        // console.log(set_categories)
+        all_categories.push(set_categories)
+         unique_categories=[...new Set(all_categories)]
+
+         let set_suppliers= (datum.supplier)
+
+         // console.log(set_categories)
+         all_suppliers.push(set_suppliers)
+          unique_suppliers=[...new Set(all_suppliers)]
+
+    })
+
+    unique_categories.forEach(category=>{
+        document.querySelector(".category ul").innerHTML+=`<li>${category}</li>`
+    })
+
+    unique_suppliers.forEach(supplier=>{
+     
+        document.querySelector(".supply ul").innerHTML+=`<li>${supplier}</li>`
+    })
+
+
+    let supply_li=document.querySelectorAll(".supply ul li")
+    let category_li=document.querySelectorAll(".category ul li")
+    
+    get_input(category_li, cat_input)
+    animate(supply_li,category_li, filter, large_select, sorter)
+    display_none(supply_li, category_li, filter, large_select)
+
+})
+
+
+
+let category_li=document.querySelectorAll(".category ul li")
+
+let supply_li=document.querySelectorAll(".supply ul li")
+
+
+
+
+display_none(sort_li,  order_li, sort, sorter)
+display_none(supply_li, category_li, filter, large_select)
+
+
+
+animate(sort_li, order_li, sort, sorter, large_select)
+animate(supply_li,category_li, filter, large_select, sorter)
 
 get_input(supply_li, sup_input)
 get_input(category_li, cat_input)
 
 get_input(sort_li, sort_input)
 get_input(order_li, order_input)
+
+
 
 
 
@@ -179,6 +239,7 @@ sorter.addEventListener("mouseenter", ()=>{
 
 function fetchInventory(filters = {}) {
 
+
     item_cont.innerHTML = "";
 
     const queryParams = new URLSearchParams(filters).toString();
@@ -191,7 +252,7 @@ function fetchInventory(filters = {}) {
     .then(data=>{
 
         if(data.status==="null"){
-            console.log(data)
+  
 
             
             item_cont.innerHTML = "  <h1>No Products</h1>";
@@ -206,9 +267,17 @@ function fetchInventory(filters = {}) {
         }
 
         else{
-            // document.querySelector(".null").style.display="none"
+    
+
+       
+          
+          
             data.forEach((datum)=>{
-                // console.log(datum)
+            
+                
+             
+
+                
         
                 item_cont.innerHTML+=`
         <div class="item_card">
@@ -261,9 +330,17 @@ function fetchInventory(filters = {}) {
         
             
             })
-        
-          
             
+            
+          
+
+
+
+   
+
+
+
+
         
         let item_cardss=document.querySelectorAll(".item_card")
         item_cardss.forEach((item_card, i)=>{
