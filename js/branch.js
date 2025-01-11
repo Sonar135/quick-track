@@ -1,7 +1,6 @@
 let item_conts=document.querySelector(".item_cont");
 let large_select=document.querySelector(".large_select");
-let supply_li=document.querySelectorAll(".supply ul li")
-let category_li=document.querySelectorAll(".category ul li")
+
 let filter=document.querySelector(".fil");
 let cat_input=document.querySelector("#cat_input")
 let sup_input=document.querySelector("#sup_input")
@@ -83,13 +82,7 @@ const animate=(filtrate, filtrate2, action, select , drop)=>{
 
 
 
-display_none(sort_li,  order_li, sort, sorter)
-display_none(supply_li, category_li, filter, large_select)
 
-
-
-animate(sort_li, order_li, sort, sorter, large_select)
-animate(supply_li,category_li, filter, large_select, sorter)
 
 
 
@@ -136,11 +129,7 @@ input_li.forEach((li)=>{
 
 
 
-get_input(supply_li, sup_input)
-get_input(category_li, cat_input)
 
-get_input(sort_li, sort_input)
-get_input(order_li, order_input)
 
 
 
@@ -160,9 +149,79 @@ sorter.style.display="block";
 
 
 
+let all_categories=[]
+let unique_categories=[]
+let all_suppliers=[]
+let unique_suppliers=[]
 
 
 
+fetch(`get_inventory.php?v=${branchId}`, {
+    method:"GET",
+}).then(res=>res.json()).then(data=>{
+
+
+
+  
+
+
+    data.forEach(datum=>{
+        let set_categories= (datum.category)
+
+        // console.log(set_categories)
+        all_categories.push(set_categories)
+         unique_categories=[...new Set(all_categories)]
+
+         let set_suppliers= (datum.supplier)
+
+         // console.log(set_categories)
+         all_suppliers.push(set_suppliers)
+          unique_suppliers=[...new Set(all_suppliers)]
+
+    })
+
+    unique_categories.forEach(category=>{
+        document.querySelector(".category ul").innerHTML+=`<li>${category}</li>`
+    })
+
+    unique_suppliers.forEach(supplier=>{
+     
+        document.querySelector(".supply ul").innerHTML+=`<li>${supplier}</li>`
+    })
+
+
+    let supply_li=document.querySelectorAll(".supply ul li")
+    let category_li=document.querySelectorAll(".category ul li")
+    
+    get_input(category_li, cat_input)
+    get_input(supply_li, sup_input)
+    animate(supply_li,category_li, filter, large_select, sorter)
+    display_none(supply_li, category_li, filter, large_select)
+
+})
+
+
+
+let category_li=document.querySelectorAll(".category ul li")
+
+let supply_li=document.querySelectorAll(".supply ul li")
+
+
+
+
+display_none(sort_li,  order_li, sort, sorter)
+display_none(supply_li, category_li, filter, large_select)
+
+
+
+animate(sort_li, order_li, sort, sorter, large_select)
+animate(supply_li,category_li, filter, large_select, sorter)
+
+get_input(supply_li, sup_input)
+get_input(category_li, cat_input)
+
+get_input(sort_li, sort_input)
+get_input(order_li, order_input)
 
 
 

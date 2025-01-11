@@ -194,6 +194,7 @@ fetch("get_inventory.php", {
     let category_li=document.querySelectorAll(".category ul li")
     
     get_input(category_li, cat_input)
+    get_input(supply_li, sup_input)
     animate(supply_li,category_li, filter, large_select, sorter)
     display_none(supply_li, category_li, filter, large_select)
 
