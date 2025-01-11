@@ -323,7 +323,7 @@ function fetchInventory(filters = {}) {
                 
                 document.querySelector("#name").innerHTML=`${data[j].name}`
                 document.querySelector("#id").value=data[j].id
-                document.querySelector(".search_bar").style.display="none";
+                document.querySelector(".search_bar").style.bottom="-600px";
 
             
             })
@@ -393,8 +393,12 @@ document.querySelector("#no").addEventListener("click", ()=>{
                 document.querySelector(".hero").classList.remove("hero_blur")
                 document.querySelector(".hero").style.animation="remove_blur .6s"
                 document.querySelector("#name").textContent=""
-                document.querySelector("#id").value=""    
-                document.querySelector(".search_bar").style.display="block";
+                document.querySelector("#id").value=""
+                
+                setTimeout(()=>{
+                document.querySelector(".search_bar").style.bottom="0";
+                    
+                }, 800)
 })
 
 
