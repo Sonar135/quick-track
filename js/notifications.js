@@ -20,7 +20,7 @@ fetch("get_exp.php", {
 
     else{
 
-        document.querySelector(".notify").textContent=data.length
+
         data.forEach((datum, i)=>{
             // console.log(datum)
             document.querySelector("#tbody").innerHTML+=`
@@ -30,6 +30,7 @@ fetch("get_exp.php", {
                                 <td>${datum.name}</td>
                                 <td>${datum.date}</td>
                                 <td>${datum.quantity} Left in stock</td>
+                                <td>${datum.branch}</td>
             
                          
                               </tr>
@@ -77,8 +78,8 @@ fetch("get_low_stock.php", {
             <tr>
                                 <td><div class="exp_img"><img src="pictures/${datum.image}" alt=""></div></td>
                                 <td>${datum.name}</td>
-                                <td>${datum.date}</td>
                                 <td>${datum.quantity} Left in stock</td>
+                                <td>${datum.branch}</td>
             
                          
                               </tr>
@@ -94,6 +95,37 @@ fetch("get_low_stock.php", {
             tr.style.display = 'table-row';
           }, i * 100); 
     })
+
+   
+})
+
+
+
+
+fetch("get_total_not.php", {
+    method:"GET"
+})
+
+.then(res=>res.json())
+.then(data=>{
+
+    
+
+
+    if(data.status==="no_record"){
+       
+    }
+
+
+    else{
+
+        document.querySelector(".notify").textContent=data.total
+   
+     
+    }
+
+
+    
 
    
 })

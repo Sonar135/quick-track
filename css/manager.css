@@ -120,7 +120,7 @@ h3{
     top:60px;
     /* box-shadow: var(--shadow); */
     background: white;
-    z-index: 9999999999999999;
+    z-index: 99;
 }
 
 .side_bar ul{

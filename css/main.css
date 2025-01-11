@@ -90,6 +90,12 @@
     z-index:9999999999999;
 }
 
+
+.notify{
+    color:white;
+}
+
+
 .side_bar ul{
     width:100%;
     height:100%;

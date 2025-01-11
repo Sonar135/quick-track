@@ -375,7 +375,36 @@ fetch("get_exp.php", {
 
     else{
 
-        document.querySelector(".notify").textContent=data.length
+     
+     
+    }
+
+
+    
+
+   
+})
+
+
+fetch("get_total_not.php", {
+    method:"GET"
+})
+
+.then(res=>res.json())
+.then(data=>{
+
+    
+
+
+    if(data.status==="no_record"){
+       
+    }
+
+
+    else{
+
+        document.querySelector(".notify").textContent=data.total
+    
      
     }
 

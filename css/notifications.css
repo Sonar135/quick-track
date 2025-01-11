@@ -6,12 +6,14 @@
     width:45px;
     height:45px;
     border-radius: 45px;
-    background: #000;
+    /* background: #000; */
     margin:1px auto;
     display:flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    /* box-shadow: var(--shadow); */
+    border:2px solid var(--accent_reso);
 }
 
 .exp_img img{
@@ -47,4 +49,17 @@ tr{
 
 .notify{
     color:white;
+}
+
+
+
+.table_cont{
+    max-width:1300px;
+    margin:50px auto;
+    height:480px;
+    box-shadow: var(--shadow);
+}
+
+.record:nth-child(2){
+    margin-top:180px;
 }
