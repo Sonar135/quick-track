@@ -197,7 +197,7 @@ delete_branch_form.addEventListener("submit", (e)=>{
 
             setTimeout(()=>{
                 location.reload();
-            }, 1500)
+            }, 800)
 
         }
     })

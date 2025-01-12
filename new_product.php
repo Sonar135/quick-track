@@ -28,6 +28,11 @@ $dateTime = DateTime::createFromFormat("d/m/Y", $_POST["date"]);
 
 
 
+    if($date<date("y-m-d")){
+        echo json_encode(['status'=>'past_date']);
+    exit();
+    }
+
     if (!filter_var($quantity, FILTER_VALIDATE_INT)) {
         echo json_encode(['status'=> 'quantity_invalid']);
         exit();

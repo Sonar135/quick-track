@@ -46,6 +46,17 @@ product_form.addEventListener("submit", (e)=>{
         product_data[3].value="";
     }
 
+
+    else if(data.status==="past_date"){
+        message.style.display="flex";
+        message.textContent="date cannot be past"
+        setTimeout(()=>{
+            message.style.display="none";
+        }, 7000);
+
+        product_data[3].value="";
+    }
+
     else if(data.status==="quantity_invalid"){
         message.style.display="flex";
         message.textContent="invalid quantity"

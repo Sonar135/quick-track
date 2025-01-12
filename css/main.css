@@ -53,8 +53,15 @@
     height:100%;
     display:flex;
     align-items:center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    transition:.5s;
 }
+
+.mid_cont ul{
+    width:600px;
+    margin:0 auto;
+}
+
 
 .mid_cont ul li, .last_cont ul li{
 
@@ -64,7 +71,6 @@
     font-size:14px;
     text-transform: capitalize;
     letter-spacing: 1px;
-    /* margin:0 10px; */
 }
 
 

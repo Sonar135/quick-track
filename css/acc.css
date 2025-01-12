@@ -102,6 +102,10 @@ h3{
     /* margin:0 10px; */
 }
 
+.mid_cont ul{
+    width:600px;
+    margin:0 auto;
+}
 
 .sec1{
     min-height:500px;

@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://kit.fontawesome.com/b782cf5553.js" crossorigin="anonymous"></script>  
+    <script src="https://kit.fontawesome.com/b782cf5553.js" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
     <link rel="stylesheet" href="css/branch.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +22,7 @@
                 <a href="dashboard.html"><li>dashboard</li></a>
                 <a href="account.html"><li>account management</li></a>
                 
-                <li>reports</li>
+        
                 <li></li>
             </ul>
         </div>
@@ -35,8 +38,8 @@
         <div class="branch_nav">
             <ul>
                 <li>inventory</li>
-               <li>sales records</li>
-               <li>purchases records</li>
+               <li>sales reports</li>
+               <li>purchases reports</li>
             </ul>
         </div>
 
@@ -148,17 +151,17 @@
         <div class="container sales">
             <div class="table_cont">
                 <div class="heading">
-                    <h4>Sales Records</h4>
+                    <h4>Sales Reports</h4>
 
 
                 </div>
 
                 <section>
                     <!--for demo wrap-->
-      
-                    <div class="tbl-header">
-                      <table cellpadding="0" cellspacing="0" border="0">
-                        <thead>
+                   
+                    <div class="tbl-header" >
+                      <table cellpadding="0" cellspacing="0" border="0" >
+                        <thead id="sale_head">
                           <tr>
                             <th>Product</th>
                             <th>Quantity</th>
@@ -170,7 +173,7 @@
                       </table>
                     </div>
                     <div class="tbl-content">
-                      <table cellpadding="0" cellspacing="0" border="0">
+                      <table cellpadding="0" cellspacing="0" border="0" id="sale_body">
                         <tbody id="sales">
                     
                         
@@ -179,18 +182,21 @@
                         </tbody>
                       </table>
                     </div>
+                
                   </section>
                   
                   
              
                
             </div>
+
+            <button class="to_pdf sale_pdf" id="sale_pdf">Export PDF</button>
         </div>
 
         <div class="container purchases">
             <div class="table_cont">
                 <div class="heading">
-                    <h4>Purchases Records</h4>
+                    <h4>Purchases Reports</h4>
 
 
                 </div>
@@ -200,7 +206,7 @@
       
                     <div class="tbl-header">
                       <table cellpadding="0" cellspacing="0" border="0">
-                        <thead>
+                        <thead id="purchase_head">
                           <tr>
                             <th>Product</th>
                             <th>Quantity</th>
@@ -227,6 +233,8 @@
              
                
             </div>
+            
+            <button class="to_pdf" id="purchase_pdf">Export PDF</button>
         </div>
     </div>
 </body>

@@ -249,6 +249,11 @@ button:disabled{
     cursor:default;
 }
 
+.mid_cont ul{
+    width:600px;
+    margin:0 auto;
+}
+
 .message{
     position:fixed;
     background: var(--accent_reso);

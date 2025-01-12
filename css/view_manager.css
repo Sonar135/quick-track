@@ -127,6 +127,12 @@ h3{
     cursor:default;
 }
 
+
+.mid_cont ul{
+    width:600px;
+    margin:0 auto;
+}
+
 .profile_card{
     width:500px;
     height:100%;

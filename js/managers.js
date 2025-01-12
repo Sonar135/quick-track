@@ -101,7 +101,7 @@ delete_manager_form.addEventListener("submit", (e)=>{
 
             setTimeout(()=>{
                 location.reload();
-            }, 1500)
+            }, 800)
 
         }
     })

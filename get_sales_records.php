@@ -40,6 +40,7 @@
     else{
         while( $row=mysqli_fetch_assoc($query)){
             $data[]=[
+                "branch"=>$row["branch"],
                 "name"=>$row["name"],
                 "quantity"=>$row["quantity"],
                 "customer"=>$row["customer"],

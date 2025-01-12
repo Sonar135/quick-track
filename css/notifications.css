@@ -45,6 +45,8 @@ tr{
     cursor:default;
 }
 
+
+
 @keyframes rise {
     0% {
         opacity: 0;
@@ -72,3 +74,6 @@ tr{
 .record:nth-child(2){
     margin-top:180px;
 }
+
+
+

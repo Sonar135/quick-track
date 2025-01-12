@@ -43,6 +43,7 @@ if (count($filters) > 0) {
     else{
         while( $row=mysqli_fetch_assoc($query)){
             $data[]=[
+                "branch"=>$row["branch"],
                 "name"=>$row["name"],
                 "quantity"=>$row["quantity"],
                 "supplier"=>$row["supplier"],

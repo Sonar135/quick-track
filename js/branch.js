@@ -370,7 +370,7 @@ fetch(`get_purchase_records.php?v=${branchId}`, {
 
     document.querySelector("#tbody").innerHTML=""
     if(data.status==="no_record"){
-       
+        document.querySelector("#purchase_pdf").style.display="none";
     }
 
 
@@ -387,6 +387,35 @@ fetch(`get_purchase_records.php?v=${branchId}`, {
                           </tr>
             `
         })
+
+
+        document.getElementById('purchase_pdf').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+        
+        
+                    const headRows = Array.from(document.querySelectorAll("#purchase_head tr")).map(tr => 
+                        Array.from(tr.cells).map(td => td.textContent)
+                    );
+                    
+                    // Extract table body rows
+                    const bodyRows = Array.from(document.querySelectorAll("#tbody tr")).map(tr => 
+                        Array.from(tr.cells).map(td => td.textContent)
+                    );
+                    
+        
+                    doc.autoTable({
+                        head: headRows, // Set the head rows
+                        body: bodyRows,
+                        startY: 10,
+                        headStyles: { fillColor: [100, 150, 255] },
+                        theme: 'grid'
+                    });
+        
+                    doc.save(`${data[1].branch}-purchases-report.pdf`);
+        });
+
+
     }
 
 
@@ -451,6 +480,8 @@ fetch(`get_sales_records.php?v=${branchId}`, {
     // document.querySelector("#sales").innerHTML=""
     if(data.status==="no_record"){
        console.log("no record")
+
+       document.querySelector("#sale_pdf").style.display="none";
     }
 
 
@@ -472,7 +503,44 @@ fetch(`get_sales_records.php?v=${branchId}`, {
 
 
         })
+
+
+
+        document.getElementById('sale_pdf').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+                    const doc = new jsPDF();
+        
+        
+                    const headRows = Array.from(document.querySelectorAll("#sale_head tr")).map(tr => 
+                        Array.from(tr.cells).map(td => td.textContent)
+                    );
+                    
+                    // Extract table body rows
+                    const bodyRows = Array.from(document.querySelectorAll("#sales tr")).map(tr => 
+                        Array.from(tr.cells).map(td => td.textContent)
+                    );
+                    
+        
+                    doc.autoTable({
+                        head: headRows, // Set the head rows
+                        body: bodyRows,
+                        startY: 10,
+                        headStyles: { fillColor: [100, 150, 255] },
+                        theme: 'grid'
+                    });
+        
+                    doc.save(`${data[1].branch}-sales-report.pdf`);
+        });
+
+
+
     }
+
+
+
+
+
+
 
 
     let trss=document.querySelectorAll(".sales tr")
@@ -543,6 +611,19 @@ form.addEventListener("submit", (e) => {
     })
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
